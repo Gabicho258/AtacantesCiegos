@@ -6,30 +6,33 @@ public class AtacantesCiegosApp {
 		
 		
 		int difficulty = 0;
-		int key = 0;
 		do {
 			String menu = "Menú Atacantes Ciegos\n"
 					+ "Seleccione nivel de dificultad\n"
 					+ "1.- Fácil - 8x8 - 10 puntos por jugador\n"
 					+ "2.- Medio - 10x10 - 15 puntos por jugador\n"
 					+ "3.- Difícil - 12x12 - 20 puntos por jugador\n"
+					+ "4.- Salir\n"
 					+ "Ingrese su opción: ";
 			try {
 				
 				difficulty = Integer.parseInt(JOptionPane.showInputDialog(menu));// Captamos la difultad 
-				if (difficulty >3 || difficulty <1) {
+				if (difficulty >4 || difficulty <1) {
 					throw new Exception("Número fuera de rango");
 				}
-				key = 1;
+				
 			} catch (Exception e) {
 				JOptionPane.showMessageDialog(null, e.getMessage());
 				continue;
 			}
+			if (difficulty == 4) 
+				break;
 			Battlefield board = new Battlefield(difficulty);
 			board.getInput(1);
 			board.getInput(2);
 			board.showBoard();
-		} while (key != 1);
+			break;
+		} while (true);
 		
 	}
 }
