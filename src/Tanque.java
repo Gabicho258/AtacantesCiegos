@@ -10,9 +10,6 @@ public class Tanque {
 	private String name;
 	
 	public Tanque() {
-		//Esto es para hacerlo pasar por el if al mostrar el tablero
-		//De igual manera será reemplazado ya que no está vivo
-		//this.name = key;
 		isAlive = false;
 	}
 	public Tanque(String name, int points, int vida) {
