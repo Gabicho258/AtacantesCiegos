@@ -227,7 +227,7 @@ public class Battlefield extends JFrame {
 
 				int level = 0;
 				try {
-					level = Integer.parseInt(JOptionPane.showInputDialog(typeTank));// Captamos la difultad para asignar los puntos 
+					level = Integer.parseInt(JOptionPane.showInputDialog(typeTank));// Captamos el nivel
 					if (level>3 || level<1) {
 						throw new Exception();
 					}
