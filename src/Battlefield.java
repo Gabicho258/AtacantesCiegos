@@ -104,12 +104,12 @@ public class Battlefield extends JFrame {
 				board[i][j] = new Tanque();
 			}
 			//checkear winner
-			if (!checkWinner()) {
-				changeVisibility();
-				getContentPane().removeAll();
-				showBoard();
-				
+			if (checkWinner()) {
+				System.exit(0);
 			}
+			changeVisibility();
+			getContentPane().removeAll();
+			showBoard();
 		}
 	}
 	private boolean checkWinner() {
@@ -122,8 +122,8 @@ public class Battlefield extends JFrame {
 		//Player 1 - Su mitad de tablero
 		minCol = 0;
 		maxCol = length/2 -1;
-		for (int i = 0; i < board.length && !player1; i++) {
-			for (int j = minCol; j < maxCol && !player1; j++) {
+		for (int i = 0; i < board.length; i++) {
+			for (int j = minCol; j <= maxCol && !player1; j++) {
 				if (board[i][j]!= null && board[i][j].isAlive()) 
 					player1 = true;
 			}
@@ -131,8 +131,8 @@ public class Battlefield extends JFrame {
 		//Player 2 - Su mitad de tablero
 		minCol = length/2;
 		maxCol = length-1;
-		for (int i = 0; i < board.length && !player2; i++) {
-			for (int j = minCol; j < maxCol && !player2; j++) {
+		for (int i = 0; i < board.length; i++) {
+			for (int j = minCol; j <= maxCol && !player2; j++) {
 				if (board[i][j]!= null && board[i][j].isAlive()) 
 					player2 = true;
 			}
